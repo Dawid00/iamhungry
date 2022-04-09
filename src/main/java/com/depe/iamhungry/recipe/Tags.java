@@ -23,6 +23,6 @@ class Tags {
 @ToString
 class Tag{
     @SerializedName("display-name")
-    String displayName;
+    private String displayName;
 }
 
