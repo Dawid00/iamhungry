@@ -56,7 +56,7 @@ public class YummlyApiClient {
             return getRootFromResponseBodyInJson(responseBody);
         }
         catch (IOException exception){
-            throw new RestServerException();
+            throw new ApiException();
         }
     }
 
@@ -77,7 +77,7 @@ public class YummlyApiClient {
             return getRootFromResponseBodyInJson(responseBody);
         }
         catch (IOException exception){
-            throw new RestServerException();
+            throw new ApiException();
         }
     }
 }
