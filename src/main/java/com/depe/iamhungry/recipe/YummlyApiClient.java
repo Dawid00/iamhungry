@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -12,11 +13,17 @@ import java.io.IOException;
 @Component
 public class YummlyApiClient {
 
-    private final String URL = "https://yummly2.p.rapidapi.com/";
-    private final String API_HEADER_KEY = "x-rapidapi-key";
-    private final String API_HEADER_KEY_VALUE = "7d88bb3f4fmsh0b5f0ba848cc569p1ffa9ajsn4738de6c13f4";
-    private final String API_HEADER_HOST = "x-rapidapi-host";
-    private final String API_HEADER_HOST_VALUE = "yummly2.p.rapidapi.com";
+
+    @Value("${yummly.api.url}")
+    private String URL;
+    @Value("${yummly.api.header_key}")
+    private String API_HEADER_KEY;
+    @Value("${yummly.api.header_key_value}")
+    private String API_HEADER_KEY_VALUE;
+    @Value("${yummly.api.header_host}")
+    private String API_HEADER_HOST;
+    @Value("${yummly.api.header_host_value}")
+    private String API_HEADER_HOST_VALUE;
     private final OkHttpClient client = new OkHttpClient();
 
 
@@ -73,6 +80,4 @@ public class YummlyApiClient {
             throw new RestServerException();
         }
     }
-
 }
-
