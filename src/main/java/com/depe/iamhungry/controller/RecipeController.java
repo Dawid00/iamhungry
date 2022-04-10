@@ -1,15 +1,11 @@
 package com.depe.iamhungry.controller;
 
-
-import com.depe.iamhungry.recipe.Root;
 import com.depe.iamhungry.recipe.dto.RecipeDto;
 import com.depe.iamhungry.service.RecipeService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
@@ -32,10 +28,9 @@ class RecipeController {
         }
         return recipeService.getRecipesWithNameAndLimit(name, limit, start);
     }
+
     @GetMapping("/one")
     RecipeDto getRecipe() {
         return recipeService.getRecipeDto();
     }
-
-
 }

@@ -33,14 +33,14 @@ public class RecipeDtoProducer {
             }
 
             if (Objects.nonNull(content.getIngredientLines())) {
-                recipeDtoBuilder.ingredientDtoList(fromIngredientLine(content.getIngredientLines()));
+                recipeDtoBuilder.ingredients(fromIngredientLine(content.getIngredientLines()));
             }
 
             if (Objects.nonNull(content.getPreparationSteps())) {
-                recipeDtoBuilder.instructionDtoList(fromPreparationsSteps(content.getPreparationSteps()));
+                recipeDtoBuilder.instructions(fromPreparationsSteps(content.getPreparationSteps()));
             }
             if (Objects.nonNull(content.getNutrition())) {
-                recipeDtoBuilder.nutritionDtoList(fromNutrition(content.getNutrition()));
+                recipeDtoBuilder.nutrition(fromNutrition(content.getNutrition()));
             }
 
         return recipeDtoBuilder.build();

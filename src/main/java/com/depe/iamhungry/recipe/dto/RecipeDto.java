@@ -9,9 +9,9 @@ import java.util.List;
 public class RecipeDto {
 
 
-    private List<IngredientDto> ingredientDtoList;
-    private List<InstructionDto> instructionDtoList;
-    private List<NutritionDto> nutritionDtoList;
+    private List<IngredientDto> ingredients;
+    private List<InstructionDto> instructions;
+    private List<NutritionDto> nutrition;
     private String totalTime;
     private String description;
     private String name;
