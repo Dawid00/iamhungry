@@ -1,5 +1,6 @@
 package com.depe.iamhungry.recipe;
 
+import com.depe.iamhungry.exception.ApiException;
 import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
