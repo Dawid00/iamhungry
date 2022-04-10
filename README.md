@@ -38,7 +38,7 @@ Example Response
 ```json
 
 {
-  "ingredientDtoList": [
+  "ingredients": [
     {
       "ingredient": "nonstick cooking spray",
       "quantity": 0.0,
@@ -80,7 +80,7 @@ Example Response
       "wholeLine": "1/2 cup shredded Parmesan cheese"
     }
   ],
-  "instructionDtoList": [
+  "instructions": [
     {
       "instruction": "Preheat the oven to 375°F. Spray a 9x13-inch baking dish with nonstick cooking spray."
     },
@@ -103,7 +103,7 @@ Example Response
       "instruction": "Serve the chicken breasts immediately."
     }
   ],
-  "nutritionDtoList": [
+  "nutrition": [
     {
       "kcal": 297.0
     }
@@ -131,7 +131,7 @@ GET http://localhost:9000/api/recipes?name=egg&limit=1&start=500
 Example Response
 ```json
 {
-  "ingredientDtoList": [
+  "ingredients": [
     {
       "ingredient": "nonstick cooking spray",
       "quantity": 0.0,
@@ -163,7 +163,7 @@ Example Response
       "wholeLine": "1/4 tsp. black pepper"
     }
   ],
-  "instructionDtoList": [
+  "instructions": [
     {
       "instruction": "Preheat the oven to 425°F."
     },
@@ -183,7 +183,7 @@ Example Response
       "instruction": "Serve immediately."
     }
   ],
-  "nutritionDtoList": [
+  "nutrition": [
     {
       "kcal": 93.05
     }
