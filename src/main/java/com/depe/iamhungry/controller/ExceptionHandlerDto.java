@@ -1,9 +1,9 @@
 package com.depe.iamhungry.controller;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.ToString;
 
-@Getter
+@Data
 @ToString
 public class ExceptionHandlerDto {
     private String message;
