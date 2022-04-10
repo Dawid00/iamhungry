@@ -6,8 +6,7 @@ Because of yummly2 API sometimes responses a recipe without nutrition or instruc
 I used:
 * Spring Boot to create application
 * OkHttpClient to communicate with API
-* Gson to map JSON objects to Java objects
-
+* Gson to serialize JSON to Java objects
 ## API Reference
 
 #### Get random recipe
