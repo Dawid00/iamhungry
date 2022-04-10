@@ -22,17 +22,17 @@ class RecipeController {
         this.recipeService = recipeService;
     }
 
-    @GetMapping("/food")
-    RecipeDto getRecipeWithName(@RequestParam String name) {
-        return recipeService.getRecipeWithName(name);
-    }
-
-    @GetMapping("/foods")
-    List<RecipeDto> getRecipesWithNameAndLimit(@RequestParam String name, @RequestParam Integer limit) {
-        return recipeService.getRecipesWithNameAndLimit(name, limit, 0);
-    }
-
     @GetMapping()
+    List<RecipeDto> getRecipesWithNameAndLimitAndStart(@RequestParam String name, @RequestParam(required = false) Integer limit, @RequestParam(required = false) Integer start) {
+        if(limit == null){
+            limit = 3;
+        }
+        if(start == null){
+            start = 0;
+        }
+        return recipeService.getRecipesWithNameAndLimit(name, limit, start);
+    }
+    @GetMapping("/one")
     RecipeDto getRecipe() {
         return recipeService.getRecipeDto();
     }
