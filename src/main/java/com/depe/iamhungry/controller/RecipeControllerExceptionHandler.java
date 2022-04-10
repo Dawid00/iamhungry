@@ -21,7 +21,7 @@ class RecipeControllerExceptionHandler {
     @ResponseBody
     @ExceptionHandler(BadParamsException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    ExceptionHandlerDto handleBadParamsException(ApiException exception){
+    ExceptionHandlerDto handleBadParamsException(BadParamsException exception){
         return new ExceptionHandlerDto(exception.getMessage());
     }
 
