@@ -39,12 +39,12 @@ public class RecipeService {
         if(start == null){
             start = 0;
         }
-        validParam(start, limit);
+        validParams(start, limit);
         Root root = yummlyApiClient.getRecipesWithNameAndLimitAndStart(name, limit, start);
         return RecipeDtoProducer.recipeDtoListFromRoot(root);
     }
-    private static void validParam(int start, int limit){
-        if ((limit + start) > 500){
+    private static void validParams(int start, int limit){
+        if ((limit + start) > 500 && limit > 0 && start >= 0 ){
             throw new BadParamsException();
         }
     }
