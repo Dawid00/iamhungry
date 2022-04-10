@@ -18,7 +18,6 @@ public class RecipeService {
         this.yummlyApiClient = yummlyApiClient;
     }
 
-
     public RecipeDto getRecipeDto() {
         return RecipeDtoProducer.recipeDtoFromRoot(yummlyApiClient.getRecipe(randomStart()));
     }
@@ -44,7 +43,7 @@ public class RecipeService {
         return RecipeDtoProducer.recipeDtoListFromRoot(root);
     }
     private static void validParams(int start, int limit){
-        if ((limit + start) > 500 && limit > 0 && start >= 0 ){
+        if ((limit + start) > 500 || limit < 1 || start < 0 ){
             throw new BadParamsException();
         }
     }
