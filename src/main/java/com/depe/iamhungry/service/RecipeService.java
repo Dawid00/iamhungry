@@ -1,4 +1,5 @@
 package com.depe.iamhungry.service;
+import com.depe.iamhungry.exception.BadParamsException;
 import com.depe.iamhungry.recipe.RecipeDtoProducer;
 import com.depe.iamhungry.recipe.YummlyApiClient;
 import com.depe.iamhungry.recipe.Root;
@@ -32,7 +33,19 @@ public class RecipeService {
     }
 
     public List<RecipeDto> getRecipesWithNameAndLimit(String name, Integer limit, Integer start) {
-        Root root = yummlyApiClient.getRecipesWithNameAndLimitAndStart(name, limit,start);
+        if(limit == null){
+            limit = 3;
+        }
+        if(start == null){
+            start = 0;
+        }
+        validParam(start, limit);
+        Root root = yummlyApiClient.getRecipesWithNameAndLimitAndStart(name, limit, start);
         return RecipeDtoProducer.recipeDtoListFromRoot(root);
+    }
+    private static void validParam(int start, int limit){
+        if ((limit + start) > 500){
+            throw new BadParamsException();
+        }
     }
 }
