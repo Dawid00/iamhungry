@@ -9,10 +9,7 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class IngredientDto {
-
     private String ingredient;
-    private double quantity;
+    private Double quantity;
     private String wholeLine;
-
-
 }

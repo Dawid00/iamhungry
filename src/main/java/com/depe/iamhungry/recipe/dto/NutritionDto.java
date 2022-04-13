@@ -6,6 +6,5 @@ import lombok.Data;
 @Builder
 @Data
 public class NutritionDto {
-
-    private double kcal;
+    private Double kcal;
 }
