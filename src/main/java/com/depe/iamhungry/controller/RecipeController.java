@@ -2,6 +2,7 @@ package com.depe.iamhungry.controller;
 
 import com.depe.iamhungry.recipe.dto.RecipeDto;
 import com.depe.iamhungry.service.RecipeService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,18 +20,18 @@ class RecipeController {
     }
 
     @GetMapping()
-    List<RecipeDto> getRecipesWithNameAndLimitAndStart(@RequestParam String name, @RequestParam(required = false) Integer limit, @RequestParam(required = false) Integer start) {
+    ResponseEntity<List<RecipeDto>> getRecipesWithNameAndLimitAndStart(@RequestParam String name, @RequestParam(required = false) Integer limit, @RequestParam(required = false) Integer start) {
         if(limit == null){
             limit = 3;
         }
         if(start == null){
             start = 0;
         }
-        return recipeService.getRecipesWithNameAndLimit(name, limit, start);
+        return ResponseEntity.ok(recipeService.getRecipesWithNameAndLimit(name, limit, start));
     }
 
     @GetMapping("/one")
-    RecipeDto getRecipe() {
-        return recipeService.getRecipeDto();
+    ResponseEntity<RecipeDto> getRecipe() {
+        return ResponseEntity.ok(recipeService.getRecipeDto());
     }
 }
