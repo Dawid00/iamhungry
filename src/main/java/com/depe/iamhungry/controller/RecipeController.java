@@ -20,13 +20,7 @@ class RecipeController {
     }
 
     @GetMapping()
-    ResponseEntity<List<RecipeDto>> getRecipesWithNameAndLimitAndStart(@RequestParam String name, @RequestParam(required = false) Integer limit, @RequestParam(required = false) Integer start) {
-        if(limit == null){
-            limit = 3;
-        }
-        if(start == null){
-            start = 0;
-        }
+    ResponseEntity<List<RecipeDto>> getRecipesWithNameAndLimitAndStart(@RequestParam String name, @RequestParam(defaultValue = "3") Integer limit, @RequestParam(defaultValue = "0") Integer start) {
         return ResponseEntity.ok(recipeService.getRecipesWithNameAndLimit(name, limit, start));
     }
 
