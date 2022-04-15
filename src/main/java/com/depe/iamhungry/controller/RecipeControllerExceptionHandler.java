@@ -14,15 +14,15 @@ class RecipeControllerExceptionHandler {
     @ResponseBody
     @ExceptionHandler(ApiException.class)
     @ResponseStatus(HttpStatus.BAD_GATEWAY)
-    ExceptionHandlerDto handleApiException(ApiException exception){
-        return new ExceptionHandlerDto(exception.getMessage());
+    ExceptionMessageDto handleApiException(ApiException exception){
+        return new ExceptionMessageDto(exception.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler(BadParamsException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    ExceptionHandlerDto handleBadParamsException(BadParamsException exception){
-        return new ExceptionHandlerDto(exception.getMessage());
+    ExceptionMessageDto handleBadParamsException(BadParamsException exception){
+        return new ExceptionMessageDto(exception.getMessage());
     }
 
 }

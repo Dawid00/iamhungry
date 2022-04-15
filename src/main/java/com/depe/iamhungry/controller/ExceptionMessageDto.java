@@ -5,9 +5,9 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class ExceptionHandlerDto {
+public class ExceptionMessageDto {
     private String message;
-    public ExceptionHandlerDto(String message) {
+    public ExceptionMessageDto(String message) {
         this.message = message;
     }
 }
