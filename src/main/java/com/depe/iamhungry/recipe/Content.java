@@ -1,13 +1,8 @@
 package com.depe.iamhungry.recipe;
 
 
-import lombok.Getter;
-import lombok.ToString;
-
 import java.util.List;
 
-@Getter
-@ToString
 class Content {
     private Description description;
     private Details details;
@@ -15,4 +10,28 @@ class Content {
     private Tags tags;
     private List<String> preparationSteps;
     private Nutrition nutrition;
+
+    Description getDescription() {
+        return description;
+    }
+
+    Details getDetails() {
+        return details;
+    }
+
+    List<Ingredient> getIngredientLines() {
+        return ingredientLines;
+    }
+
+    Tags getTags() {
+        return tags;
+    }
+
+    List<String> getPreparationSteps() {
+        return preparationSteps;
+    }
+
+    Nutrition getNutrition() {
+        return nutrition;
+    }
 }

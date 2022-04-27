@@ -1,20 +1,30 @@
 package com.depe.iamhungry.recipe;
 
-import lombok.Getter;
-import lombok.ToString;
-
 import java.util.List;
 
-@Getter
-@ToString
 class Nutrition {
         private List<NutritionEstimate> nutritionEstimates;
+
+        List<NutritionEstimate> getNutritionEstimates() {
+                return nutritionEstimates;
+        }
 }
 
-@Getter
-@ToString
+
 class NutritionEstimate{
         private String attribute;
         private double value;
         private Unit unit;
+
+        String getAttribute() {
+                return attribute;
+        }
+
+        double getValue() {
+                return value;
+        }
+
+        Unit getUnit() {
+                return unit;
+        }
 }

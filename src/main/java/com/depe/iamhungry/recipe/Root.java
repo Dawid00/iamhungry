@@ -4,7 +4,7 @@ import java.util.List;
 class Root {
     private List<Feed> feed;
 
-    public List<Feed> getFeed() {
+    List<Feed> getFeed() {
         return feed;
     }
 }
