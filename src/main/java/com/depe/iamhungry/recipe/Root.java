@@ -1,12 +1,10 @@
 package com.depe.iamhungry.recipe;
-
-import lombok.Getter;
-import lombok.ToString;
-
 import java.util.List;
 
-@Getter
-@ToString
-public class Root {
+class Root {
     private List<Feed> feed;
+
+    public List<Feed> getFeed() {
+        return feed;
+    }
 }
