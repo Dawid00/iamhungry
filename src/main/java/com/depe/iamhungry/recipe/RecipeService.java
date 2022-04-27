@@ -12,24 +12,19 @@ public class RecipeService {
 
     private final YummlyApiClient yummlyApiClient;
 
-    public RecipeService(YummlyApiClient yummlyApiClient) {
+    public RecipeService(final YummlyApiClient yummlyApiClient) {
         this.yummlyApiClient = yummlyApiClient;
     }
 
     public RecipeDto getRecipeDto() {
-        return RecipeDtoProducer.recipeDtoFromRoot(yummlyApiClient.getRecipe(randomStart()));
+        return RecipeDtoProducer.recipeDtoFromRoot(yummlyApiClient.getResponseBodyWithRecipe(randomStart()));
     }
 
-    private static int randomStart(){
-        Random random = new Random();
-        return random.nextInt(499);
+    public RecipeDto getRecipeWithName(String name){
+        return RecipeDtoProducer.recipeDtoFromRoot(yummlyApiClient.getResponseBodyWithRecipeWithName(name));
     }
 
-    public RecipeDto getRecipeWithName(String name) {
-        return RecipeDtoProducer.recipeDtoFromRoot(yummlyApiClient.getRecipeWithName(name));
-    }
-
-    public List<RecipeDto> getRecipesWithNameAndLimit(String name, Integer limit, Integer start) {
+    public List<RecipeDto> getRecipesWithNameAndLimit(String name, Integer limit, Integer start){
         if(limit == null){
             limit = 3;
         }
@@ -37,12 +32,18 @@ public class RecipeService {
             start = 0;
         }
         validParams(start, limit);
-        Root root = yummlyApiClient.getRecipesWithNameAndLimitAndStart(name, limit, start);
+        Root root = RecipeDtoProducer.getRootFromResponseBodyInJson(yummlyApiClient.getResponseBodyWithRecipesWithNameAndLimitAndStart(name, limit, start));
         return RecipeDtoProducer.recipeDtoListFromRoot(root);
     }
+
     private static void validParams(int start, int limit){
         if ((limit + start) > 500 || limit < 1 || start < 0 ){
             throw new BadParamsException();
         }
+    }
+
+    private static int randomStart(){
+        Random random = new Random();
+        return random.nextInt(499);
     }
 }

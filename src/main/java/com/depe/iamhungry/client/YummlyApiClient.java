@@ -1,7 +1,5 @@
 package com.depe.iamhungry.client;
 
-import com.depe.iamhungry.recipe.Root;
-import com.google.gson.Gson;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
@@ -24,7 +22,7 @@ public class YummlyApiClient {
     private String API_HEADER_HOST_VALUE;
     private final OkHttpClient client = new OkHttpClient();
 
-    public Root getRecipe(int startNumber) {
+    public ResponseBody getResponseBodyWithRecipe(int startNumber) {
         Request request = new Request.Builder()
                 .url(URL + "feeds/search?maxResult=1&start=" + startNumber)
                 .get()
@@ -32,15 +30,14 @@ public class YummlyApiClient {
                 .addHeader(API_HEADER_HOST, API_HEADER_HOST_VALUE)
                 .build();
         try {
-            Gson gson = new Gson();
-            ResponseBody responseBody = client.newCall(request).execute().body();
-            return gson.fromJson(responseBody.string(), Root.class);
+           return client.newCall(request).execute().body();
         }
         catch (IOException ex) {
             throw new ApiException();
         }
     }
-    public Root getRecipeWithName(String name) {
+
+    public ResponseBody getResponseBodyWithRecipeWithName(String name) {
         Request request = new Request.Builder()
                 .url(URL + "feeds/search?maxResult=1&start=0&q=" + name)
                 .get()
@@ -48,20 +45,15 @@ public class YummlyApiClient {
                 .addHeader(API_HEADER_HOST, API_HEADER_HOST_VALUE)
                 .build();
         try{
-            ResponseBody responseBody = client.newCall(request).execute().body();
-            return getRootFromResponseBodyInJson(responseBody);
+            return client.newCall(request).execute().body();
         }
         catch (IOException exception){
             throw new ApiException();
         }
     }
 
-    private static Root getRootFromResponseBodyInJson(ResponseBody responseBody) throws IOException {
-        Gson gson = new Gson();
-        return gson.fromJson(responseBody.string(), Root.class);
-    }
 
-    public Root getRecipesWithNameAndLimitAndStart(String name, int limit, int start) {
+    public ResponseBody getResponseBodyWithRecipesWithNameAndLimitAndStart(String name, int limit, int start) {
         Request request = new Request.Builder()
                 .url(URL + "feeds/search?maxResult=" + limit + "&start=" + start + "&q=" + name)
                 .get()
@@ -69,8 +61,9 @@ public class YummlyApiClient {
                 .addHeader(API_HEADER_HOST, API_HEADER_HOST_VALUE)
                 .build();
         try{
+
             ResponseBody responseBody = client.newCall(request).execute().body();
-            return getRootFromResponseBodyInJson(responseBody);
+            return responseBody;
         }
         catch (IOException exception){
             throw new ApiException();
