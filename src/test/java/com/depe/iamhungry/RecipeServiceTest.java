@@ -1,6 +1,7 @@
 package com.depe.iamhungry;
 
-import com.depe.iamhungry.recipe.BadParamsException;
+
+import com.depe.iamhungry.client.BadParamsException;
 import com.depe.iamhungry.client.YummlyApiClient;
 import com.depe.iamhungry.recipe.RecipeService;
 import org.junit.jupiter.api.BeforeEach;

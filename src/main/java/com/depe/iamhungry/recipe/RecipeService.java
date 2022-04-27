@@ -1,4 +1,5 @@
 package com.depe.iamhungry.recipe;
+import com.depe.iamhungry.client.BadParamsException;
 import com.depe.iamhungry.client.YummlyApiClient;
 import com.depe.iamhungry.recipe.dto.RecipeDto;
 import org.springframework.stereotype.Service;

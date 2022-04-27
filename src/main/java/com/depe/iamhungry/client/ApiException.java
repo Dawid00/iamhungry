@@ -1,4 +1,4 @@
-package com.depe.iamhungry.recipe;
+package com.depe.iamhungry.client;
 
 public class ApiException extends RuntimeException {
     public ApiException() {

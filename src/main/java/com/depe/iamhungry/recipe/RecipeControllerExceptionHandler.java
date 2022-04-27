@@ -1,5 +1,7 @@
 package com.depe.iamhungry.recipe;
 
+import com.depe.iamhungry.client.ApiException;
+import com.depe.iamhungry.client.BadParamsException;
 import com.depe.iamhungry.recipe.dto.ExceptionMessageDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

@@ -1,4 +1,4 @@
-package com.depe.iamhungry.recipe;
+package com.depe.iamhungry.client;
 
 public class BadParamsException extends RuntimeException {
 
