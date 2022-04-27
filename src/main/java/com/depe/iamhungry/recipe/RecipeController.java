@@ -1,7 +1,7 @@
-package com.depe.iamhungry.controller;
+package com.depe.iamhungry.recipe;
 
 import com.depe.iamhungry.recipe.dto.RecipeDto;
-import com.depe.iamhungry.service.RecipeService;
+import com.depe.iamhungry.recipe.RecipeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ class RecipeController {
 
     private final RecipeService recipeService;
 
-    RecipeController(RecipeService recipeService) {
+    RecipeController(final RecipeService recipeService) {
         this.recipeService = recipeService;
     }
 

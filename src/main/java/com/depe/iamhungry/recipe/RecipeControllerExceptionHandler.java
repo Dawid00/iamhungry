@@ -1,7 +1,6 @@
-package com.depe.iamhungry.controller;
+package com.depe.iamhungry.recipe;
 
-import com.depe.iamhungry.exception.BadParamsException;
-import com.depe.iamhungry.exception.ApiException;
+import com.depe.iamhungry.recipe.dto.ExceptionMessageDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -12,4 +12,4 @@ class Unit {
         private String pluralAbbreviation;
         private String kind;
         private boolean decimal;
-    }
+}

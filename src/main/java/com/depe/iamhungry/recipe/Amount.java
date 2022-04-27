@@ -8,4 +8,5 @@ import lombok.ToString;
 @ToString
 class Amount {
     private Metric metric;
+
 }
